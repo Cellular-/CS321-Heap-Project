@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class MaxHeap<T extends Comparable<T>> {
     private ArrayList<T> heap;
@@ -19,7 +18,10 @@ public class MaxHeap<T extends Comparable<T>> {
 
     public void insert(T elem) {
         heap.add(elem);
-        maxHeapifyUp(heap.size() - 1);
+
+        if(heap.size() > 0 ) {
+            maxHeapifyUp(heap.size() - 1);
+        }
     }
 
     public T extractMax() {
