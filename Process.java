@@ -38,10 +38,12 @@ public class Process implements Comparable<Process> {
             result = 1;
         } else if (priority < otherProcess.priority) {
             result = -1;
-        } else if (arrivalTime > otherProcess.arrivalTime) {
-            result = 1;
-        } else if (arrivalTime < otherProcess.arrivalTime) {
-            result = -1;
+        } else {
+            if (arrivalTime < otherProcess.arrivalTime) {
+                result = 1;
+            } else if (arrivalTime > otherProcess.arrivalTime) {
+                result = -1;
+            }
         }
 
         return result;
