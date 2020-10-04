@@ -1,3 +1,10 @@
+/**
+ * Generates instance of Process.
+ * 
+ * @author Steven Lineses
+ * @version 1.0
+ */
+
 import java.util.Random;
 
 public class ProcessGenerator {

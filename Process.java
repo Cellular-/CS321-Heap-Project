@@ -1,3 +1,10 @@
+/**
+ * Represents a CPU process that is allocated CPU time.
+ * 
+ * @author Steven Lineses
+ * @version 1.0
+ */
+
 public class Process implements Comparable<Process> {
     private int priority;
     private int timeRemaining;
@@ -33,6 +40,8 @@ public class Process implements Comparable<Process> {
         /**
          * Sometimes two processes will have the same priority values and
          * when that occurs, their arrival times are compared instead.
+         * 
+         * The process with the lower arrivalTime is greater.
          */
         if (priority > otherProcess.priority) {
             result = 1;

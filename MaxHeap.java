@@ -1,3 +1,10 @@
+/**
+ * Max heap ADT implementation using ArrayList.
+ * 
+ * @author Steven Lineses
+ * @version 1.0
+ */
+
 import java.util.ArrayList;
 
 public class MaxHeap<T extends Comparable<T>> {
@@ -7,26 +14,21 @@ public class MaxHeap<T extends Comparable<T>> {
         this.heap = new ArrayList<T>();
     }
 
-    public MaxHeap(ArrayList<T> arr) {
-        heap = arr;
-        this.buildHeap(arr);
-    }
-
     public int getSize() {
         return heap.size();
     }
 
     public void insert(T elem) {
-        heap.add(elem);
+        heap.add(elem); // Adds elem to bottom of heap array.
 
-        if(heap.size() > 0 ) {
+        if(heap.size() > 0) {
             maxHeapifyUp(heap.size() - 1);
         }
     }
 
     public T extractMax() {
         assert heap.size() > 0 : "Heap is empty";
-        T root = heap.get(0);
+        T root = heap.get(0); // Have to save the max before swapping and removing.
 
         swap(heap, 0, heap.size() - 1);
         heap.remove(heap.size() - 1);
@@ -52,6 +54,11 @@ public class MaxHeap<T extends Comparable<T>> {
         }
     }
 
+    /**
+     * Used when the root is extracted to restore heap properties.
+     * 
+     * @param index - index of element to heapify down
+     */
     private void maxHeapifyDown(int index) {
         assert index >= 0 && index < heap.size();
 
@@ -68,12 +75,6 @@ public class MaxHeap<T extends Comparable<T>> {
             
             swap(heap, index, j);
             index = j;
-        }
-    }
-
-    public void buildHeap(ArrayList<T> arr) {
-        for(int i = (arr.size() / 2) - 1; i >= 0; i--) {
-            maxHeapifyDown(i);
         }
     }
 
