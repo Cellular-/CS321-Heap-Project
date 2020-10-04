@@ -1,5 +1,3 @@
-import java.util.Iterator;
-
 public class PQueue {
     private MaxHeap<Process> heap;
 
